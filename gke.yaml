@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
         - name: gcp-devops-gke
-          image: gcr.io/dauntless-gate-423820-c9/gcpdevops:latest
+          image: gcr.io/dauntless-gate-423820-c9/gcpdevops-dev:latest
           env:
             - name: PORT
               value: "5000"
@@ -25,7 +25,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: gcp-devops-gke-service
-  namespace: gcp-devops-prod
+  namespace: gcp-devops-dev
   labels:
     app.kubernetes.io/managed-by: "gcp-cloud-build-deploy"
 spec:
