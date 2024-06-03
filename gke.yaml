@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dcp-devops-gke
+spec:
+  selector:
+    matchLabels:
+      app: gcp
+  template:
+    metadata:
+      labels:
+        app: gcp
+    spec:
+      containers:
+        - name: gcp-devops-gke
+          image: gcr.io/dauntless-gate-423820-c9/gcpdevops:latest
+          env:
+            - name: PORT
+              value: "5000"
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          ports:
+            - containerPort: 5000
